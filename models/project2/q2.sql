@@ -5,7 +5,7 @@ WITH maga_tweets AS (
     FROM `graph.tweets`
     WHERE LOWER(text) LIKE '%maga%'
 )
-SELECT year, month, COUNT(*) AS count
+SELECT CAST(year AS int) AS year, CAST(month AS int) AS month, COUNT(*) AS count
 FROM maga_tweets
 GROUP BY year, month
 ORDER BY COUNT(*) DESC
